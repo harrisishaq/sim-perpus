@@ -13,6 +13,18 @@ class Azk
         return 'Tersedia';
     }
 
+    public static function getStatusTransaksi($id)
+    {
+        if($id==0)
+        {
+            return '<td style="text-align:center;color:red">Belum Kembali</td>';
+        }
+        else
+        {
+            return '<td style="text-align:center;color:green">Approved</td>';
+        }
+    }
+
     public static function showAlert($status, $message)
     {
         if($status == 'error')

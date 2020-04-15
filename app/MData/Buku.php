@@ -12,4 +12,9 @@ class Buku extends Model
     {
     	return $this->belongsTo('\App\MData\Penerbit', 'penerbits_id');
     }
+
+    public function Transaksi()
+    {
+        return $this->hasMany(\App\Operational\Transaksi::class);
+    }
 }

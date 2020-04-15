@@ -1,13 +1,9 @@
 @extends('layouts.app')
-@section('page-heading', __('Mahasiswa'))
+@section('page-heading', __('Penerbit'))
 
 @section('styles')
-<link rel="stylesheet" type="text/css" href="{{ asset(('app-assets/css/core/menu/menu-types/vertical-menu.min.css')) }}">
-<link rel="stylesheet" type="text/css" href="{{ asset(('app-assets/css/core/colors/palette-gradient.min.css')) }}">
-<link rel="stylesheet" type="text/css" href="{{ asset(('app-assets/vendors/css/tables/datatable/datatables.min.css')) }}">
-<style type="text/css">
-.datepicker{z-index:1151;}
-</style>
+<link rel="stylesheet" type="text/css" href="{{ asset(('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')) }}">
+<link rel="stylesheet" type="text/css" href="{{ asset(('plugins/datatables-responsive/css/responsive.bootstrap4.min.css')) }}">
 @endsection
 
 
@@ -23,7 +19,7 @@
                         <div class="float-right">
                             <div class="btn-group">
                                 <a class="btn bg-primary font-weight-bold mr-1 mb-1" href="{{ url('mdata/penerbit/add') }}">
-                                    <i class="fas fa-plus mr-1"></i>
+                                    <i class="fas fa-plus mr-2"></i>
                                     @lang(__(' Add Data'))
                                 </a>
                             </div>
@@ -79,17 +75,15 @@
 @stop
 
 @section('scripts')
-<script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.min.js')}}"></script>
-<script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.buttons.min.js')}}"></script>
+<script src="{{ asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.html5.min.js')}}"></script>
-<script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.print.min.js')}}"></script>
-<script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js')}}"></script>
-<script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js')}}"></script>
-<script src="{{ asset('app-assets/js/scripts/modal/components-modal.min.js')}}"></script>
-<script src="{{ asset('app-assets/js/scripts/datatables/datatable.js') }}"></script>
+<script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
 <script>
-    $(document).ready(function() {
-        $("#datatable").DataTable();
+    $('#datatable').DataTable({
+      "responsive": true,
+      "autoWidth": false, 
     });
 </script>
 @endsection

@@ -23,7 +23,7 @@
                         <div class="float-right">
                             <div class="btn-group">
                                 <a class="btn bg-primary font-weight-bold mr-1 mb-1" href="{{ url('mdata/buku/add') }}">
-                                    <i class="fas fa-plus mr-1"></i>
+                                    <i class="fas fa-plus mr-2"></i>
                                     @lang(__(' Add Data'))
                                 </a>
                             </div>

@@ -63,8 +63,8 @@
             </a>
           </li>
           <li class="nav-header">OPERASIONAL</li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+          <li class="nav-item has-treeview {{ Request::is('operational/transaksi*') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ Request::is('operational/transaksi*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Transaksi
@@ -73,13 +73,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="{{ url('operational/transaksi/') }}" class="nav-link {{ Request::is('operational/transaksi') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>List Peminjaman</p>
+                  <p>List Transaksi</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="{{ url('operational/transaksi/add') }}" class="nav-link {{ Request::is('operational/transaksi/add') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Peminjaman</p>
                 </a>

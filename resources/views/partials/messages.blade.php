@@ -1,5 +1,6 @@
 @if(isset ($errors) && count($errors) > 0)
     <div class="alert alert-danger alert-notification alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <ul class="list-unstyled mb-0">
             @foreach($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -12,13 +13,15 @@
     <?php $data = Session::get('success'); ?>
     @if (is_array($data))
         @foreach ($data as $msg)
-            <div class="alert alert-primary alert-notification alert-dismissible fade show">
+            <div class="alert alert-success alert-notification alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <i class="fa fa-check"></i>
                 {{ $msg }}
             </div>
         @endforeach
     @else
-        <div class="alert alert-primary alert-notification alert-dismissible fade show">
+        <div class="alert alert-success alert-notification alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <i class="fa fa-check"></i>
             {{ $data }}
         </div>

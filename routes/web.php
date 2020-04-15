@@ -63,5 +63,19 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
             Route::put('{id}/edit', $ctr . '@update');
         });
 	});
+
+    Route::group(['prefix' => 'operational', 'namespace' => 'Operational'], function () {
+        Route::group(['prefix' => 'transaksi'], function () {
+            $ctr = 'TransaksiController';
+            Route::get('/', $ctr . '@show');
+            Route::get('add', $ctr . '@add');
+            Route::post('create', $ctr . '@create');
+            Route::get('{id}/edit', $ctr . '@edit');
+            Route::put('{id}/edit', $ctr . '@update');
+            Route::get('{id}/destroy', $ctr . '@delete');
+            Route::get('get-mahasiswa', $ctr.'@getMahasiswaData');
+            Route::get('get-hari', $ctr.'@getMaxHariPinjam');
+        });
+    });
 });
 

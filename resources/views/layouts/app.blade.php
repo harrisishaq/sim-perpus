@@ -12,18 +12,10 @@
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset(('plugins/fontawesome-free/css/all.min.css')) }}">
-    <!-- <link rel="stylesheet" type="text/css" href="{{ asset(('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')) }}"> -->
     @yield('styles')
-    <!-- BEGIN VUEXY CSS-->
-    <!-- <link rel="stylesheet" type="text/css" href="{{ asset(('plugins/icheck-bootstrap/icheck-bootstrap.min.css')) }}"> -->
-    <!-- <link rel="stylesheet" type="text/css" href="{{ asset(('plugins/jqvmap/jqvmap.min.css')) }}"> -->
     <link rel="stylesheet" type="text/css" href="{{ asset(('dist/css/adminlte.min.css')) }}">
     <link rel="stylesheet" type="text/css" href="{{ asset(('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')) }}">
-    <!-- <link rel="stylesheet" type="text/css" href="{{ asset(('plugins/daterangepicker/daterangepicker.css')) }}"> -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Bootstrap4 Duallistbox -->
-    <!-- <link rel="stylesheet" type="text/css" href="{{ asset(('plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css')) }}"> -->
-    <!-- BEGIN Page Level CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset(('plugins/summernote/summernote-bs4.css')) }}">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
@@ -65,7 +57,6 @@
     <script src="{{ asset(('plugins/bootstrap/js/bootstrap.bundle.min.js')) }}"></script>
     <script src="{{ asset(('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')) }}"></script>
     <script src="{{ asset(('dist/js/adminlte.min.js')) }}"></script>
-    <script src="{{ asset(('dist/js/pages/dashboard.js')) }}"></script>
     <!-- END: Theme JS-->
     @yield('scripts')
 </body>
