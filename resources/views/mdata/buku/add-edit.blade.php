@@ -38,11 +38,11 @@
                             <div class="form-group">
                                 <label for="kode_buku">@lang('Kode Buku')</label>
                                 <input type="hidden" name="id" id="id" value="{{ $edit ? $data->id : old('id') }}">
-                                <input type="text" class="form-control input-solid" id="nim" name="kode_buku" placeholder="@lang('Kode Buku')" value="{{ $edit ? $data->kode_buku : old('kode_buku') }}" required>
+                                <input type="text" class="form-control input-solid" id="nim" name="kode_buku" placeholder="@lang('Kode Buku')" value="{{ $edit ? $data->kode_buku : old('kode_buku') }}" required autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="nama">@lang('Judul Buku')</label>
-                                <input type="text" class="form-control input-solid" id="nama_buku" name="nama_buku" placeholder="@lang('Judul Buku')" value="{{ $edit ? $data->nama_buku : old('nama_buku') }}" required>
+                                <input type="text" class="form-control input-solid" id="nama_buku" name="nama_buku" placeholder="@lang('Judul Buku')" value="{{ $edit ? $data->nama_buku : old('nama_buku') }}" required autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="penerbit">@lang('Penerbit')</label>
@@ -63,7 +63,7 @@
                                        name="stok_tersedia"
                                        placeholder="@lang('Tersedia')"
                                        width="400px" 
-                                       value="{{ $edit ? $data->stok_tersedia : old('stok_tersedia') }}" required>
+                                       value="{{ $edit ? $data->stok_tersedia : old('stok_tersedia') }}" required autocomplete="off">
                               </div>
                               <div class="col-sm-6">
                                 <label>Terpinjam</label>
@@ -73,20 +73,22 @@
                                        name="stok_terpinjam"
                                        placeholder="@lang('Terpinjam')"
                                        width="400px" 
-                                       value="{{ $edit ? $data->stok_terpinjam : old('stok_terpinjam') }}" required>
+                                       value="{{ $edit ? $data->stok_terpinjam : 0 }}" required readonly>
                               </div>
                             </div>
-                            <div class="form-group">
-                                <label for="no_hp">@lang('Status')</label>
-                                <select class="form-control input-solid" id="status" name="status" required>
-                                    <option value="">-- Select --</option>
-                                    <option value="1" {{ $edit ? ($data->status == 1 ? 'selected' : '') : '' }}>Tersedia</option>
-                                    <option value="0" {{ $edit ? ($data->status == 0 ? 'selected' : '') : '' }}>Tidak Tersedia</option>
-                                </select>
-                            </div>
-            <button type="submit" class="btn btn-primary float-left">
-                {{ __($edit ? 'Update' : 'Create') }}
-            </button>
+                            <!-- @if ($edit)
+                              <div class="form-group">
+                                  <label for="no_hp">@lang('Status')</label>
+                                  <select class="form-control input-solid" id="status" name="status" required>
+                                      <option value="">-- Select --</option>
+                                      <option value="1" {{ $edit ? ($data->status == 1 ? 'selected' : '') : '' }}>Tersedia</option>
+                                      <option value="0" {{ $edit ? ($data->status == 0 ? 'selected' : '') : '' }}>Tidak Tersedia</option>
+                                  </select>
+                              </div>
+                            @endif -->
+                            <button type="submit" class="btn btn-primary float-left">
+                                {{ __($edit ? 'Update' : 'Create') }}
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -98,6 +100,11 @@
 @stop
 @section('scripts')
 <script src="{{ asset (('plugins/select2/js/select2.full.min.js')) }}"></script>
+<!-- <script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('stok_terpinjam').setAttribute("value", 0);
+    }, false);
+</script> -->
 <script>
     $(function () {
         //Initialize Select2 Elements

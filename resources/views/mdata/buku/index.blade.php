@@ -58,7 +58,7 @@
                                               <td style="text-align:center">{{ $d->penerbit['nama'] }}</td>
                                               <td style="text-align:center">{{ $d->stok_tersedia }}</td>
                                               <td style="text-align:center">{{ $d->stok_terpinjam }}</td>
-                                              <td style="text-align:center">{{ Azk::getMDStatus($d->status) }}</td>
+                                              {!! Azk::getMDStatus ($d->status) !!}
                                               <td style="text-align:center">
                                                 <a href="{{ url('mdata/buku/'.$d->id.'/edit') }}" class="btn btn-icon" title="@lang('Edit')" data-toggle="tooltip" data-placement="top">
                                                   <i class="fas fa-edit fa-sm"></i>

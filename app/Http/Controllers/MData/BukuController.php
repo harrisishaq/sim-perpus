@@ -23,7 +23,7 @@ class BukuController extends Controller
 
     public function add()
     {
-    	$penerbit = Penerbit::all();
+    	$penerbit = Penerbit::where('status', 1)->get();
         return view('mdata.buku.add-edit', ['edit'=> false, 'penerbit' => $penerbit]);
     }
 

@@ -17,36 +17,16 @@
             <div class="col-12">
                 @include('partials.messages')
                 <div class="card">
-                    <!-- /.card-header -->
-                    <div class="card-header">
-                      <div class="card-tools">
-                        <div class="float-right">
-                            <div class="btn-group">
-                                <a class="btn bg-primary font-weight-bold mr-1 mb-1" href="{{ url('operational/transaksi/add') }}">
-                                    <i class="fas fa-plus mr-2"></i>
-                                    @lang(__(' Add Data'))
-                                </a>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
                     <div class="card-body">
                         <div class="table-responsive" id="users-table-wrapper">
-                          <table class="table table-striped table-bordered" id="datatable">
+                          <table class="table table-striped table-borderless" id="datatable">
                               <thead>
-                                  <tr>
-                                    <th colspan="2"></th>
-                                    <th colspan="3" style="text-align:center;">Tanggal</th>
-                                    <th colspan="2"></th>
-                                  </tr>
                                   <tr>
                                       <th style="text-align:center">NIM</th>
                                       <th style="text-align:center">Judul Buku</th>
-                                      <th style="text-align:center">Pinjam</th>
-                                      <th style="text-align:center">Batas Kembali</th>
-                                      <th style="text-align:center">Kembali</th>
-                                      <th style="text-align:center">Status</th>
-                                      <th style="text-align:center" class="min-width-150">Action</th>
+                                      <th style="text-align:center">Tanggal Pinjam</th>
+                                      <th style="text-align:center">Batas Pinjam</th>
+                                      <th style="text-align:center">Action</th>
                                   </tr>
                               </thead>
                               <tbody>
@@ -57,30 +37,24 @@
                                               <td style="text-align:center">{{ $d->bukuInformation['nama_buku'] }}</td>
                                               <td style="text-align:center">{{ $d->date_from }}</td>
                                               <td style="text-align:center">{{ $d->date_until }}</td>
-                                              <td style="text-align:center">{{ $d->date_returned }}</td>
-                                              {!! Azk::getStatusTransaksi ($d->status) !!}
-                                              <td class="text-center" class="min-width-150">
-                                                <!-- <a href="{{ url('operational/transaksi/'.$d->id.'/edit') }}" class="btn btn-icon" title="@lang('Edit')" data-toggle="tooltip" data-placement="top">
+                                              <td style="text-align:center">
+                                                <a class="btn-sm bg-info font-weight-bold" href="{{ url('operational/transaksi/'.$d->id.'/kembali') }}">
+                                                  @lang(__('Kembali'))
+                                                </a>
+                                              </td>
+                                              <!-- <td class="text-center">
+                                                <a href="{{ url('operational/transaksi/'.$d->id.'/edit') }}" class="btn btn-icon" title="@lang('Edit')" data-toggle="tooltip" data-placement="top">
                                                   <large><i class="fas fa-edit"></i></large>
                                                 </a>
                                                 <a href="{{ url('operational/transaksi/'.$d->id.'/destroy') }}" class="btn btn-icon" title="@lang('Delete')" data-toggle="tooltip" data-placement="top" data-method="DELETE" data-confirm-title="@lang('Please Confirm')" data-confirm-text="@lang('Are you sure that you want to delete this Type Of Loan?')" data-confirm-delete="@lang('Yes, delete it!')">
-                                                  <i class="fas fa-trash"></i>
-                                                </a> -->
-                                                <a class="btn-sm bg-primary font-weight-bold mr-1 mb-1" href="{{ url('operational/transaksi/'.$d->id.'/edit') }}">
-                                                  <i class="fas fa-edit"></i>
+                                                  <large><i class="fas fa-trash"></i></large>
                                                 </a>
-                                                <a class="btn-sm bg-info font-weight-bold mb-1" href="{{ url('operational/transaksi/'.$d->id.'/kembali') }}">
-                                                  <i class="fas fa-exchange-alt"></i>
-                                                </a>
-                                                <a class="btn-sm bg-danger font-weight-bold ml-1 mb-1" href="{{ url('operational/transaksi/'.$d->id.'/destroy') }}">
-                                                  <i class="fas fa-trash"></i>
-                                                </a>
-                                              </td>
+                                              </td> -->
                                           </tr>
                                       @endforeach
                                   @else
                                       <tr>
-                                          <td colspan="7"><em>@lang('No records found.')</em></td>
+                                          <td colspan="5"><em>@lang('No records found.')</em></td>
                                       </tr>
                                   @endif
                               </tbody>
@@ -108,7 +82,7 @@
     $(document).ready(function() {
         $('#datatable').DataTable({
           "responsive": true,
-          "autoWidth": true,
+          "autoWidth": false,
           "order": [], 
         });
     });

@@ -85,7 +85,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="{{ url('operational/transaksi/show-list-pinjam') }}" class="nav-link {{ Request::is('operational/transaksi/show-list-pinjam') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pengembalian</p>
                 </a>
@@ -93,7 +93,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('operational/denda/') }}" class="nav-link {{ Request::is('operational/denda*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Denda
@@ -101,7 +101,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link { Request::is('laporan/*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Laporan
@@ -110,25 +110,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="{{ url('laporan/peminjaman') }}" class="nav-link { Request::is('laporan/peminjaman*') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Peminjaman</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="{{ url('laporan/pengembalian') }}" class="nav-link { Request::is('laporan/pengembalian*') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pengembalian</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="{{ url('laporan/pinjam-kembali') }}" class="nav-link { Request::is('laporan/pinjam-kembali*') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pinjam & Kembali</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="{{ url('laporan/denda') }}" class="nav-link { Request::is('laporan/denda*') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Denda</p>
                 </a>

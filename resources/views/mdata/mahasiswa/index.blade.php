@@ -51,7 +51,13 @@
                                               <td style="text-align:center">{{ $d->email }}</td>
                                               <td style="text-align:center">{{ $d->no_hp }}</td>
                                               <td class="text-center">
-                                                <a href="{{ url('mdata/mahasiswa/'.$d->id.'/edit') }}" class="btn btn-icon" title="@lang('Edit')" data-toggle="tooltip" data-placement="top">
+                                                <a class="btn-sm bg-primary font-weight-bold mr-1 mb-1" href="{{ url('mdata/mahasiswa/'.$d->id.'/edit') }}">
+                                                  <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a class="btn-sm bg-danger font-weight-bold ml-1 mb-1" href="{{ url('mdata/mahasiswa/'.$d->id.'/destroy') }}">
+                                                  <i class="fas fa-trash"></i>
+                                                </a>
+                                                <!-- <a href="{{ url('mdata/mahasiswa/'.$d->id.'/edit') }}" class="btn btn-icon" title="@lang('Edit')" data-toggle="tooltip" data-placement="top">
                                                   <large><i class="fas fa-edit"></i></large>
                                                 </a>
                                                 <a href="{{ url('mdata/mahasiswa/'.$d->id.'/destroy') }}" class="btn btn-icon"
@@ -63,7 +69,7 @@
                                                      data-confirm-text="@lang('Are you sure that you want to delete this Type Of Loan?')"
                                                      data-confirm-delete="@lang('Yes, delete it!')">
                                                      <large><i class="fas fa-trash"></i></large>
-                                                  </a>
+                                                  </a> -->
                                               </td>
                                           </tr>
                                       @endforeach

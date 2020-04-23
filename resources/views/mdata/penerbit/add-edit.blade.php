@@ -33,9 +33,17 @@
                                 <label for="nama">@lang('Nama')</label>
                                 <input type="text" class="form-control input-solid" id="nama" name="nama" placeholder="@lang('Nama')" value="{{ $edit ? $data->nama : old('nama') }}" required>
                             </div>
-            <button type="submit" class="btn btn-primary float-left">
-                {{ __($edit ? 'Update' : 'Create') }}
-            </button>
+                            <div class="form-group">
+                                <label for="no_hp">@lang('Status')</label>
+                                <select class="form-control input-solid" id="status" name="status" required>
+                                    <option value="">-- Select --</option>
+                                    <option value="1" {{ $edit ? ($data->status == 1 ? 'selected' : '') : '' }}>Tersedia</option>
+                                    <option value="0" {{ $edit ? ($data->status == 0 ? 'selected' : '') : '' }}>Tidak Tersedia</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary float-left">
+                                {{ __($edit ? 'Update' : 'Create') }}
+                            </button>
                         </div>
                     </div>
                 </div>

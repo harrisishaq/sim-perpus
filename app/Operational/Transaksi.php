@@ -17,4 +17,9 @@ class Transaksi extends Model
     {
     	return $this->belongsTo('\App\MData\Buku', 'bukus_id');
     }
+
+    public function Denda()
+    {
+        return $this->hasOne(\App\Operational\Transaksi::class);
+    }
 }

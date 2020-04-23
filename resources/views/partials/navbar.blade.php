@@ -10,7 +10,7 @@
   <ul class="navbar-nav ml-auto">
     <!-- Notifications Dropdown Menu -->
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="{{ route('logout') }}" class="nav-link font-weight-bold">Logout
+      <a href="{{ route ('logout') }}" class="nav-link font-weight-bold">Logout
         <i class="fas fa-sign-out-alt"></i>
       </a>
     </li>

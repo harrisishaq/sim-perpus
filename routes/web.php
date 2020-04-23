@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('logout', 'Auth\LoginController@logout')->name('auth.logout');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -75,6 +78,45 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
             Route::get('{id}/destroy', $ctr . '@delete');
             Route::get('get-mahasiswa', $ctr.'@getMahasiswaData');
             Route::get('get-hari', $ctr.'@getMaxHariPinjam');
+            Route::get('/show-list-pinjam', $ctr . '@showListPinjam');
+            Route::get('{id}/kembali', $ctr . '@kembali');
+            Route::put('{id}/kembali', $ctr . '@addKembali');
+        });
+
+        Route::group(['prefix' => 'denda'], function () {
+            $ctr = 'DendaController';
+            Route::get('/', $ctr . '@show');
+            Route::get('/all', $ctr . '@showAll');
+            Route::get('add', $ctr . '@add');
+            Route::post('create', $ctr . '@create');
+            Route::get('{id}/bayar', $ctr . '@edit');
+            Route::put('{id}/bayar', $ctr . '@update');
+        });
+    });
+
+    Route::group(['prefix' => 'laporan', 'namespace' => 'Laporan'], function () {
+        Route::group(['prefix' => 'peminjaman'], function () {
+            $ctr = 'LaporanPeminjamanController';
+            Route::get('/', $ctr . '@show');
+            Route::post('/report-pdf', $ctr. '@report');
+        });
+
+        Route::group(['prefix' => 'pengembalian'], function () {
+            $ctr = 'LaporanPengembalianController';
+            Route::get('/', $ctr . '@show');
+            Route::post('/report-pdf', $ctr. '@report');
+        });
+
+        Route::group(['prefix' => 'pinjam-kembali'], function () {
+            $ctr = 'LaporanPinjamKembaliController';
+            Route::get('/', $ctr . '@show');
+            Route::post('/report-pdf', $ctr. '@report');
+        });
+
+        Route::group(['prefix' => 'denda'], function () {
+            $ctr = 'LaporanDendaController';
+            Route::get('/', $ctr . '@show');
+            Route::post('/report-pdf', $ctr. '@report');
         });
     });
 });
