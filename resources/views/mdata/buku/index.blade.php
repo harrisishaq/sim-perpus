@@ -35,7 +35,7 @@
                           <table class="table table-striped table-borderless" id="datatable">
                               <thead>
                                   <tr>
-                                    <th colspan="3"></th>
+                                    <th colspan="4"></th>
                                     <th colspan="2" style="text-align:center">Stok</th>
                                     <th colspan="2"></th>
                                   </tr>
@@ -43,6 +43,7 @@
                                       <th style="text-align:center">Kode Buku</th>
                                       <th style="text-align:center">Judul Buku</th>
                                       <th style="text-align:center">Penerbit</th>
+                                      <th style="text-align:center">Tahun</th>
                                       <th style="text-align:center">Tersedia</th>
                                       <th style="text-align:center">Terpinjam</th>
                                       <th style="text-align:center">Status</th>
@@ -56,6 +57,7 @@
                                               <td style="text-align:center">{{ $d->kode_buku }}</td>
                                               <td style="text-align:center">{{ $d->nama_buku }}</td>
                                               <td style="text-align:center">{{ $d->penerbit['nama'] }}</td>
+                                              <td style="text-align:center">{{ $d->tahun }}</td>
                                               <td style="text-align:center">{{ $d->stok_tersedia }}</td>
                                               <td style="text-align:center">{{ $d->stok_terpinjam }}</td>
                                               {!! Azk::getMDStatus ($d->status) !!}
@@ -78,7 +80,7 @@
                                       @endforeach
                                   @else
                                       <tr>
-                                          <td colspan="7"><em>@lang('No records found.')</em></td>
+                                          <td colspan="8"><em>@lang('No records found.')</em></td>
                                       </tr>
                                   @endif
                               </tbody>

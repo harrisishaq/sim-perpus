@@ -40,7 +40,7 @@
                                     <th colspan="2"></th>
                                   </tr>
                                   <tr>
-                                      <th style="text-align:center">NIM</th>
+                                      <th style="text-align:center">NIM Peminjam</th>
                                       <th style="text-align:center">Judul Buku</th>
                                       <th style="text-align:center">Pinjam</th>
                                       <th style="text-align:center">Batas Kembali</th>

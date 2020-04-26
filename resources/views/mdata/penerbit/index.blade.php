@@ -69,7 +69,7 @@
                                       @endforeach
                                   @else
                                       <tr>
-                                          <td colspan="3"><em>@lang('No records found.')</em></td>
+                                          <td colspan="4"><em>@lang('No records found.')</em></td>
                                       </tr>
                                   @endif
                               </tbody>

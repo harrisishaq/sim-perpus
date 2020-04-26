@@ -53,6 +53,10 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="tahun">@lang('Tahun Terbit')</label>
+                                <input type="text" class="form-control input-solid" id="tahun" name="tahun" placeholder="@lang('Tahun')" value="{{ $edit ? $data->tahun : old('tahun') }}" required autocomplete="off">
+                            </div>
                             <label><strong>Stok Buku</strong></label>
                             <div class="form-group row">
                               <div class="col-sm-6">

@@ -22,7 +22,7 @@
                           <table class="table table-striped table-borderless" id="datatable">
                               <thead>
                                   <tr>
-                                      <th style="text-align:center">NIM</th>
+                                      <th style="text-align:center">NIM Peminjam</th>
                                       <th style="text-align:center">Judul Buku</th>
                                       <th style="text-align:center">Tanggal Pinjam</th>
                                       <th style="text-align:center">Batas Pinjam</th>

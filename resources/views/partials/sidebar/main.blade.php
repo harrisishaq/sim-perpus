@@ -23,14 +23,6 @@
                with font-awesome or any other icon font library -->
           <li class="nav-header">MASTER DATA</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
-              <p>
-                User
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="{{ url('mdata/mahasiswa/') }}" class="nav-link {{ Request::is('mdata/mahasiswa*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-user"></i>
               <p>

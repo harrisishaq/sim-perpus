@@ -39,7 +39,7 @@
                               <label for="nim">Nomor Induk Mahasiswa (NIM)</label>
                               <input type="hidden" name="mahasiswas_id" id="id" value="{{ $edit ? $data->mahasiswas_id : old('mahasiswas_id') }}">
                               <div class="input-group">
-                                  <input type="text" class="form-control" placeholder="Nomor Induk Mahasiswa (NIK)" id="nim" name="nim" aria-describedby="ic" value="{{ $edit ? $mahasiswa->nim : old('nim') }}" autocomplete="off" required>
+                                  <input type="text" class="form-control" placeholder="Nomor Induk Mahasiswa (NIM)" id="nim" name="nim" aria-describedby="ic" value="{{ $edit ? $mahasiswa->nim : old('nim') }}" autocomplete="off" required>
                                   <div class="input-group-append">
                                       <span class="input-group-text" id="ic">
                                           <i class="fa fa-user"></i>

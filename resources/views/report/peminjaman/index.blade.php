@@ -31,13 +31,13 @@
                 <table class="table table-striped table-borderless" id="datatable">
                     <thead>
                         <tr>
-                            <th colspan="2"></th>
+                            <th colspan="3"></th>
                             <th colspan="2" style="text-align:center;">Tanggal</th>
                             <th colspan="1"></th>
                         </tr>
                         <tr>
                             <th style="text-align:center">No. Transaksi</th>
-                            <th style="text-align:center">NIM</th>
+                            <th style="text-align:center">NIM Peminjam</th>
                             <th style="text-align:center">Judul Buku</th>
                             <th style="text-align:center">Pinjam</th>
                             <th style="text-align:center">Batas Kembali</th>

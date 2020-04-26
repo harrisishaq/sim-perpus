@@ -30,7 +30,7 @@
 			<tr>
 				<th class="text-center">No.</th>
                 <th class="text-center">No. Transaksi</th>
-				<th class="text-center">NIM</th>
+				<th class="text-center">NIM Peminjam</th>
 				<th class="text-center">Nama</th>
 				<th class="text-center">Judul Buku</th>
 				<th class="text-center">Tanggal Kembali</th>
