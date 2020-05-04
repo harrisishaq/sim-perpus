@@ -8,6 +8,10 @@
 <style type="text/css">
 .datepicker{z-index:1151;}
 </style>
+<style type="text/css">
+  table.fixed td {overflow:hidden;}/*Hide text outside the cell.*/
+  table.fixed td:nth-of-type(5) {width:80px;}/*Setting the width of column 1.*/
+</style>
 @endsection
 
 
@@ -22,9 +26,13 @@
                       <div class="card-tools">
                         <div class="float-right">
                             <div class="btn-group">
-                                <a class="btn bg-primary font-weight-bold mr-1 mb-1" href="{{ url('mdata/mahasiswa/add') }}">
+                                <a class="btn bg-primary font-weight-bold mr-3 mb-1" href="{{ url('mdata/mahasiswa/add') }}">
                                     <i class="fas fa-plus mr-2"></i>
                                     @lang(__(' Add Data'))
+                                </a>
+                                <a class="btn bg-success font-weight-bold mr-1 mb-1" data-toggle="modal" data-target="#modalImport">
+                                    <i class="fas fa-plus mr-2"></i>
+                                    @lang(__(' Add Data by Excel'))
                                 </a>
                             </div>
                         </div>
@@ -32,7 +40,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive" id="users-table-wrapper">
-                          <table class="table table-striped table-borderless" id="datatable">
+                          <table class="table table-striped table-borderless fixed" id="datatable">
                               <thead>
                                   <tr>
                                       <th style="text-align:center">NIM</th>
@@ -51,10 +59,10 @@
                                               <td style="text-align:center">{{ $d->email }}</td>
                                               <td style="text-align:center">{{ $d->no_hp }}</td>
                                               <td class="text-center">
-                                                <a class="btn-sm bg-primary font-weight-bold mr-1 mb-1" href="{{ url('mdata/mahasiswa/'.$d->id.'/edit') }}">
+                                                <a class="btn-sm bg-primary font-weight-bold mr-1 mb-1" href="{{ url('mdata/mahasiswa/'.$d->id.'/edit') }}" data-toggle="tooltip" data-placement="top" title="Edit">
                                                   <i class="fas fa-edit"></i>
                                                 </a>
-                                                <a class="btn-sm bg-danger font-weight-bold ml-1 mb-1" href="{{ url('mdata/mahasiswa/'.$d->id.'/destroy') }}">
+                                                <a class="btn-sm bg-danger font-weight-bold ml-1 mb-1" href="{{ url('mdata/mahasiswa/'.$d->id.'/destroy') }}" data-toggle="tooltip" data-placement="top" title="Delete">
                                                   <i class="fas fa-trash"></i>
                                                 </a>
                                                 <!-- <a href="{{ url('mdata/mahasiswa/'.$d->id.'/edit') }}" class="btn btn-icon" title="@lang('Edit')" data-toggle="tooltip" data-placement="top">
@@ -83,6 +91,31 @@
                         </div>
                     </div>
                 </div>
+                <div class="modal fade" id="modalImport" tabindex="-1" role="dialog" aria-labelledby="modalImportTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                  role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                          <h5 class="modal-title" id="modalImportTitle">Import Data Mahasiswa by Excel</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                          </div>
+                          <div class="modal-body">
+                            <form action="{{ url('mdata/mahasiswa/import-excel') }}" method="POST" enctype="multipart/form-data">
+                              @csrf
+                              <div class="form-group">
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="file" name="file">
+                                  <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                </div>
+                              </div>
+                              <button class="btn btn-success">Import Data</button>
+                            </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
             </div>
         </div>
     </section>
@@ -99,9 +132,13 @@
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js')}}"></script>
 <script src="{{ asset('app-assets/js/scripts/modal/components-modal.min.js')}}"></script>
 <script src="{{ asset('app-assets/js/scripts/datatables/datatable.js') }}"></script>
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 <script>
     $(document).ready(function() {
         $("#datatable").DataTable();
+    });
+    $(document).ready(function () {
+      bsCustomFileInput.init();
     });
 </script>
 @endsection

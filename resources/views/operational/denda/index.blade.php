@@ -8,6 +8,10 @@
 <style type="text/css">
 .datepicker{z-index:1151;}
 </style>
+<style type="text/css">
+  table.fixed td {overflow:hidden;}/*Hide text outside the cell.*/
+  table.fixed td:nth-of-type(6) {width:50px;}/*Setting the width of column 1.*/
+</style>
 @endsection
 
 
@@ -30,7 +34,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive" id="users-table-wrapper">
-                          <table class="table table-striped table-borderless" id="datatable">
+                          <table class="table table-striped table-borderless fixed" id="datatable">
                               <thead>
                                   <tr>
                                       <th style="text-align:center">NIM Peminjam</th>

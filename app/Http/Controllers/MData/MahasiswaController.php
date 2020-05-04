@@ -5,6 +5,8 @@ namespace App\Http\Controllers\MData;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\MData\Mahasiswa;
+use App\Imports\MahasiswasImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MahasiswaController extends Controller
 {
@@ -51,5 +53,11 @@ class MahasiswaController extends Controller
         Mahasiswa::destroy($id);
         return redirect('mdata/mahasiswa')
             ->withSuccess(__('Data Mahasiswa berhasil dihapus.'));
+    }
+
+    public function import() {
+        Excel::import(new MahasiswasImport,request()->file('file'));
+        return redirect('mdata/mahasiswa')
+            ->withSuccess(__('Data Mahasiswa berhasil ditambahkan.'));
     }
 }

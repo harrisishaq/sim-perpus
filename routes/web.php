@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
             Route::get('/', $ctr . '@show');
             Route::get('add', $ctr . '@add');
             Route::post('create', $ctr . '@create');
+            Route::post('import-excel', $ctr . '@import');
             Route::get('{id}/edit', $ctr . '@edit');
             Route::put('{id}/edit', $ctr . '@update');
             Route::get('{id}/destroy', $ctr . '@delete');
@@ -45,6 +46,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
             Route::get('/', $ctr . '@show');
             Route::get('add', $ctr . '@add');
             Route::post('create', $ctr . '@create');
+            Route::post('import-excel', $ctr . '@import');
             Route::get('{id}/edit', $ctr . '@edit');
             Route::put('{id}/edit', $ctr . '@update');
             Route::get('{id}/destroy', $ctr . '@delete');

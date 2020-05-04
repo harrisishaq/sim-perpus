@@ -5,6 +5,8 @@ namespace App\Http\Controllers\MData;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\MData\Penerbit;
+use App\Imports\PenerbitsImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PenerbitController extends Controller
 {
@@ -51,5 +53,11 @@ class PenerbitController extends Controller
         Penerbit::destroy($id);
         return redirect('mdata/penerbit')
             ->withSuccess(__('Data Penerbit berhasil dihapus.'));
+    }
+
+    public function import() {
+        Excel::import(new PenerbitsImport,request()->file('file'));
+        return redirect('mdata/penerbit')
+            ->withSuccess(__('Data Penerbit berhasil ditambahkan.'));
     }
 }

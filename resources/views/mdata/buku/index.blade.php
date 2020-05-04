@@ -8,6 +8,11 @@
 <style type="text/css">
 .datepicker{z-index:1151;}
 </style>
+
+<style type="text/css">
+  table.fixed td {overflow:hidden;}/*Hide text outside the cell.*/
+  table.fixed td:nth-of-type(8) {width:80px;}/*Setting the width of column 1.*/
+</style>
 @endsection
 
 
@@ -32,7 +37,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive" id="users-table-wrapper">
-                          <table class="table table-striped table-borderless" id="datatable">
+                          <table class="table table-striped table-borderless fixed" id="datatable">
                               <thead>
                                   <tr>
                                     <th colspan="4"></th>
@@ -62,7 +67,13 @@
                                               <td style="text-align:center">{{ $d->stok_terpinjam }}</td>
                                               {!! Azk::getMDStatus ($d->status) !!}
                                               <td style="text-align:center">
-                                                <a href="{{ url('mdata/buku/'.$d->id.'/edit') }}" class="btn btn-icon" title="@lang('Edit')" data-toggle="tooltip" data-placement="top">
+                                                <a class="btn-sm bg-primary font-weight-bold mr-1 mb-1" href="{{ url('mdata/buku/'.$d->id.'/edit') }}" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                  <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a class="btn-sm bg-danger font-weight-bold ml-1 mb-1" href="{{ url('mdata/buku/'.$d->id.'/destroy') }}" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                  <i class="fas fa-trash"></i>
+                                                </a>
+                                                <!-- <a href="{{ url('mdata/buku/'.$d->id.'/edit') }}" class="btn btn-icon" title="@lang('Edit')" data-toggle="tooltip" data-placement="top">
                                                   <i class="fas fa-edit fa-sm"></i>
                                                 </a>
                                                 <a href="{{ url('mdata/buku/'.$d->id.'/destroy') }}" class="btn btn-icon"
@@ -74,7 +85,7 @@
                                                      data-confirm-text="@lang('Are you sure that you want to delete this Type Of Loan?')"
                                                      data-confirm-delete="@lang('Yes, delete it!')">
                                                      <i class="fas fa-trash fa-sm"></i>
-                                                  </a>
+                                                  </a> -->
                                               </td>
                                           </tr>
                                       @endforeach
@@ -105,7 +116,9 @@
 <script src="{{ asset('app-assets/js/scripts/datatables/datatable.js') }}"></script>
 <script>
     $(document).ready(function() {
-        $("#datatable").DataTable();
+        $("#datatable").DataTable({
+          "autoWidth": false,
+        });
     });
 </script>
 @endsection

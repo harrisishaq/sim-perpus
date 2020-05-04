@@ -8,6 +8,10 @@
 <style type="text/css">
 .datepicker{z-index:1151;}
 </style>
+<style type="text/css">
+  table.fixed td {overflow:hidden;}/*Hide text outside the cell.*/
+  table.fixed td:nth-of-type(7) {width:110px;}/*Setting the width of column 1.*/
+</style>
 @endsection
 
 
@@ -32,7 +36,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive" id="users-table-wrapper">
-                          <table class="table table-striped table-bordered" id="datatable">
+                          <table class="table table-striped table-bordered fixed" id="datatable">
                               <thead>
                                   <tr>
                                     <th colspan="2"></th>
@@ -66,13 +70,13 @@
                                                 <a href="{{ url('operational/transaksi/'.$d->id.'/destroy') }}" class="btn btn-icon" title="@lang('Delete')" data-toggle="tooltip" data-placement="top" data-method="DELETE" data-confirm-title="@lang('Please Confirm')" data-confirm-text="@lang('Are you sure that you want to delete this Type Of Loan?')" data-confirm-delete="@lang('Yes, delete it!')">
                                                   <i class="fas fa-trash"></i>
                                                 </a> -->
-                                                <a class="btn-sm bg-primary font-weight-bold mr-1 mb-1" href="{{ url('operational/transaksi/'.$d->id.'/edit') }}">
+                                                <a class="btn-sm bg-primary font-weight-bold mr-1 mb-1" href="{{ url('operational/transaksi/'.$d->id.'/edit') }}" data-toggle="tooltip" data-placement="top" title="Edit">
                                                   <i class="fas fa-edit"></i>
                                                 </a>
-                                                <a class="btn-sm bg-info font-weight-bold mb-1" href="{{ url('operational/transaksi/'.$d->id.'/kembali') }}">
+                                                <a class="btn-sm bg-info font-weight-bold mb-1" href="{{ url('operational/transaksi/'.$d->id.'/kembali') }}" data-toggle="tooltip" data-placement="top" title="Kembali">
                                                   <i class="fas fa-exchange-alt"></i>
                                                 </a>
-                                                <a class="btn-sm bg-danger font-weight-bold ml-1 mb-1" href="{{ url('operational/transaksi/'.$d->id.'/destroy') }}">
+                                                <a class="btn-sm bg-danger font-weight-bold ml-1 mb-1" href="{{ url('operational/transaksi/'.$d->id.'/destroy') }}" data-toggle="tooltip" data-placement="top" title="Delete">
                                                   <i class="fas fa-trash"></i>
                                                 </a>
                                               </td>
