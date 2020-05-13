@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\MData\Buku;
 use App\MData\Penerbit;
+use DB;
 
 class BukuController extends Controller
 {
@@ -17,8 +18,11 @@ class BukuController extends Controller
     public function show()
     {
     	$buku = Buku::all()->sortBy('kode_buku');
-    	// dd($buku);
-    	return view('mdata.buku.index', ['data'=> $buku]);
+        $jumlah_buku = DB::table('bukus')->sum('stok_tersedia');
+        $list_judul = Buku::all();
+        $total_judul = $list_judul->count();
+    	// dd(round($jumlah_buku));
+    	return view('mdata.buku.index', ['data'=> $buku, 'jumlah_buku' => $jumlah_buku, 'jumlah_judul' => $total_judul]);
     }
 
     public function add()

@@ -24,15 +24,16 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3">
-                            <h5 class="card-title">
+                            <div class="card-title">
+                              <h5>
                                 <strong>
                                     @lang('Pengembalian Buku')
                                 </strong>
-                            </h5>
-                            <p class="description text-sm">
-                                <br>
+                              </h5>
+                              <p class="description text-sm">
                                 @lang('Isikan data tanggal saat dilakukan pengembalian buku.')
-                            </p>
+                              </p>
+                            </div>
                         </div>
                         <div class="col-md-9">
                             <div class="form-group">
@@ -117,6 +118,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group">
+                              <label for="description">@lang('Note')</label>
+                              <textarea name="description"
+                                              id="description"
+                                              class="form-control input-solid" placeholder="Note" required readonly>{{ $edit ? $data->description : old('description') }}</textarea>
+                                            </div>
                             <button type="submit" class="btn btn-primary float-left">
                                 {{ __($edit ? 'Update' : 'Create') }}
                             </button>

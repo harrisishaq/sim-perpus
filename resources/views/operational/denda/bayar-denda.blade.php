@@ -22,15 +22,16 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3">
-                            <h5 class="card-title">
+                            <div class="card-title">
+                              <h5>
                                 <strong>
                                     @lang('Pembayaran Denda')
                                 </strong>
-                            </h5>
-                            <p class="description text-sm">
-                                <br>
+                              </h5>
+                              <p class="description text-sm">
                                 @lang('Isikan data tanggal pembayaran denda dari buku yang dipinjam.')
-                            </p>
+                              </p>
+                            </div>
                         </div>
                         <div class="col-md-9">
                             <div class="form-group">

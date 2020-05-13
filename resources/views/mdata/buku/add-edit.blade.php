@@ -24,15 +24,16 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3">
-                            <h5 class="card-title">
+                            <div class="card-title">
+                              <h5>
                                 <strong>
                                     @lang('Buku Detail')
                                 </strong>
-                            </h5>
-                            <p class="description text-sm">
-                                <br>
+                              </h5>
+                              <p class="description text-sm">
                                 @lang('Informasi umum tentang Buku.')
-                            </p>
+                              </p>
+                            </div>
                         </div>
                         <div class="col-md-9">
                             <div class="form-group">

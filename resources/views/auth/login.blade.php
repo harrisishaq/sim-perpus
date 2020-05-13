@@ -21,7 +21,7 @@
                                 </div>
                                 <p class="px-2">Welcome back, please login to your account.</p>
                                 <div class="col-lg-12 d-lg-block d-none text-center align-self-center px-1 py-0">
-                                    <img src="../../../login-assets/img/logo.png" alt="branding logo">
+                                    <img src="{{ asset(('login-assets/img/logo.png')) }}" alt="branding logo">
                                 </div>
                                 <!-- <div class="col-sm-3">
                                     <center>

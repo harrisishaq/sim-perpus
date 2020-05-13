@@ -2,6 +2,7 @@
 @section('page-heading', __('Buku'))
 
 @section('styles')
+<link rel="stylesheet" type="text/css" href="{{ asset(('bootstrap/css/bootstrap.min.css')) }}">
 <link rel="stylesheet" type="text/css" href="{{ asset(('app-assets/css/core/menu/menu-types/vertical-menu.min.css')) }}">
 <link rel="stylesheet" type="text/css" href="{{ asset(('app-assets/css/core/colors/palette-gradient.min.css')) }}">
 <link rel="stylesheet" type="text/css" href="{{ asset(('app-assets/vendors/css/tables/datatable/datatables.min.css')) }}">
@@ -36,21 +37,28 @@
                       </div>
                     </div>
                     <div class="card-body">
+                      <h5 class="card-title">
+                        <strong>
+                          Total Judul: {{ $jumlah_judul }}, Jumlah Buku: {{ $jumlah_buku }}
+                        </strong>
+                      </h5>
+                      <br>
+                      <hr>
                         <div class="table-responsive" id="users-table-wrapper">
                           <table class="table table-striped table-borderless fixed" id="datatable">
                               <thead>
-                                  <tr>
+                                  <!-- <tr>
                                     <th colspan="4"></th>
                                     <th colspan="2" style="text-align:center">Stok</th>
                                     <th colspan="2"></th>
-                                  </tr>
+                                  </tr> -->
                                   <tr>
                                       <th style="text-align:center">Kode Buku</th>
                                       <th style="text-align:center">Judul Buku</th>
                                       <th style="text-align:center">Penerbit</th>
                                       <th style="text-align:center">Tahun</th>
-                                      <th style="text-align:center">Tersedia</th>
-                                      <th style="text-align:center">Terpinjam</th>
+                                      <th style="text-align:center">Stok Tersedia</th>
+                                      <th style="text-align:center">Stok Terpinjam</th>
                                       <th style="text-align:center">Status</th>
                                       <th style="text-align:center">Action</th>
                                   </tr>

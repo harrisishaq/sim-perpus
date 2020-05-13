@@ -21,15 +21,16 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3">
-                            <h5 class="card-title">
+                            <div class="card-title">
+                              <h5>
                                 <strong>
                                     @lang('Parameter Detail')
                                 </strong>
-                            </h5>
-                            <p class="description text-sm">
-                                <br>
+                              </h5>
+                              <p class="description text-sm">
                                 @lang('Informasi umum tentang Parameter. Parameter adalah nilai yang dapat digunakan sebagai nilai dasar dari suatu data.')
-                            </p>
+                              </p>
+                            </div>
                         </div>
                         <div class="col-md-3">
                           <div class="form-group">

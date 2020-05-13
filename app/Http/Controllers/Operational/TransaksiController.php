@@ -82,6 +82,7 @@ class TransaksiController extends Controller
         $transaksi->date_from = $data['date_from'];
         $transaksi->date_until = $data['date_until'];
         $transaksi->status = $data['status'];
+        $transaksi->description = $data['description'];
 
         $transaksi->save();
 
@@ -138,11 +139,11 @@ class TransaksiController extends Controller
 	        	Buku::where('id', $data_buku['id'])->update(array('stok_terpinjam' => $data_buku['stok_terpinjam'] + 1));
 	        }
 
-	        Transaksi::where('id', $id)->update(array('mahasiswas_id' => $data['mahasiswas_id'], 'bukus_id' => $data['bukus_id'], 'date_from' => $data['date_from'], 'date_until' => $data['date_until']));
+	        Transaksi::where('id', $id)->update(array('mahasiswas_id' => $data['mahasiswas_id'], 'bukus_id' => $data['bukus_id'], 'date_from' => $data['date_from'], 'date_until' => $data['date_until'], 'description' => $data['description']));
     	}
     	else
     	{
-    		Transaksi::where('id', $id)->update(array('mahasiswas_id' => $data['mahasiswas_id'], 'date_from' => $data['date_from'], 'date_until' => $data['date_until']));
+    		Transaksi::where('id', $id)->update(array('mahasiswas_id' => $data['mahasiswas_id'], 'date_from' => $data['date_from'], 'date_until' => $data['date_until'], 'description' => $data['description']));
     	}
 
         return redirect('operational/transaksi')
